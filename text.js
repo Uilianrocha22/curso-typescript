@@ -3,3 +3,4 @@ function sum(a, b) {
 }
 
 console.log(sum(10, 5));
+console.log(sum(20, 5));
