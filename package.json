@@ -1,0 +1,23 @@
+{
+  "name": "curso-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Uilianrocha22/curso-typescript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Uilianrocha22/curso-typescript/issues"
+  },
+  "homepage": "https://github.com/Uilianrocha22/curso-typescript#readme",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
