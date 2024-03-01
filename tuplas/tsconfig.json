@@ -1,7 +1,15 @@
 {
   "compilerOptions": {
+    //"outDir": "dist",
     "outFile": "dist/main.js",
-    "outDir": "dist",
     "target": "ESNext"
   }
 }
+
+// configurações do tsconfig
+
+// outDir "dist": É a pasta de saida que vai conter o arquivo  compilado
+
+// outFile "main.js" : É o arquivo typescript compilado para javascript
+
+// target "ESNest": tras a versão atual do typescript

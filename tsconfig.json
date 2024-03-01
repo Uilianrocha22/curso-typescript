@@ -5,6 +5,11 @@
   }
 }
 
-//criar um novo arquivo tsconfig.json
+//criar um novo arquivo package.json e tsconfig.json
+
 // no terminal digite:
-// tsc --init
+
+// npm init -y para inicializar o projeto
+// npm install -g typescript para instalar globalmente
+// npm install --save-dev typescript para instalar só no projeto que vai ser usado
+// tsc --init para criar um arquivo tsconfig.json padrão
