@@ -1,4 +1,4 @@
-const setPilot = (
+const setPilot = async (
   newPilot: string,
   spaceship: {
     name?: string;
@@ -10,14 +10,14 @@ const setPilot = (
   spaceship.pilot = newPilot;
 };
 
-const accelerate = (
+const accelerate = async (
   targetSpeed: number,
   spaceship: { name?: string; pilot?: string; speed: any; inMission?: boolean }
 ) => {
   spaceship.speed = targetSpeed;
 };
 
-const sendToMission = (spaceship: {
+const sendToMission = async (spaceship: {
   name?: string;
   pilot?: string;
   speed?: number;

@@ -1,19 +1,19 @@
-var setPilot = function (newPilot, spaceship) {
+const setPilot = async (newPilot, spaceship) => {
     spaceship.pilot = newPilot;
 };
-var accelerate = function (targetSpeed, spaceship) {
+const accelerate = async (targetSpeed, spaceship) => {
     spaceship.speed = targetSpeed;
 };
-var sendToMission = function (spaceship) {
+const sendToMission = async (spaceship) => {
     spaceship.inMission = true;
 };
-var spaceship = {
+const spaceship = {
     name: "",
     pilot: "",
     speed: 0,
     inMission: false,
 };
-var pilot = "Han Solo";
+const pilot = "Han Solo";
 spaceship.name = "Millennium Falcon";
 setPilot(pilot, spaceship);
 accelerate(50, spaceship);

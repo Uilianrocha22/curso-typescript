@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "outFile": "main.js",
+    "target": "ESNext"
+  }
+}
+
+//criar um novo arquivo tsconfig.json
+// no terminal digite:
+// tsc --init
