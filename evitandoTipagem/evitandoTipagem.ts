@@ -9,6 +9,7 @@ function sendSpaceShip2(spaceship: { pilot: string; copilot?: string }) {
 sendSpaceShip2({ pilot: "uilian", copilot: "chewbacca" });
 sendSpaceShip2({ pilot: "luke" });
 //---------------------------------------------------------------------------------
+// com o tipo (unknown) você pode atribuir qualquer valor para sua variável
 
 //let input: unknown;
 let input: any;
