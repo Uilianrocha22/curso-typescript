@@ -54,8 +54,10 @@ function checkPlanet(planet: planet) {
 }
 checkPlanet("Terra");
 
-type greetingCallback = (name: string) => void;
+type GreetingCallback = (name: string) => void;
 
-function greet(callbackfn: greetingCallback) {
-  callbackfn("Uilian");
+function greet(callback: GreetingCallback) {
+  const name = prompt("Qual é o seu nome?");
+
+  callback(name);
 }

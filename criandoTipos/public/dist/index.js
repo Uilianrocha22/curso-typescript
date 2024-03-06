@@ -26,6 +26,7 @@ function checkPlanet(planet) {
     }
 }
 checkPlanet("Terra");
-function greet(callbackfn) {
-    callbackfn("Uilian");
+function greet(callback) {
+    const name = prompt("Qual é o seu nome?");
+    callback(name);
 }
