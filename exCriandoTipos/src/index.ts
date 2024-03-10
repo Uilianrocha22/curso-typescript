@@ -122,6 +122,8 @@ function promptValidPlanet(callback: (planet: Planet) => void) {
 
 // Funções auxiliar para opções de menu:
 
+// funçaõ menu para adicionar um planeta, suas coordenadas e sua situação:
+
 function firstMenuOption() {
   const name = prompt(`Informe o nome do planeta:`);
 
@@ -143,4 +145,27 @@ function firstMenuOption() {
       situation
     );
   } else alert(`Retornando ao menu.`);
+}
+
+// funçoes menu que atualizam o planeta:
+
+function secondMenuOption() {
+  promptValidPlanet((planet) => {
+    const situation = promptValidSituation();
+    updateSituation(situation, planet);
+  });
+}
+
+function thirdMenuOption() {
+  promptValidPlanet((planet) => {
+    const satellite = prompt(`Informe o nome do satélite a ser adicionado:`);
+    addSatellite(satellite, planet);
+  });
+}
+
+function fourMenuOption() {
+  promptValidPlanet((planet) => {
+    const satellite = prompt(`Informe o nome do satélite a ser removido:`);
+    removeSatellite(satellite, planet);
+  });
 }
