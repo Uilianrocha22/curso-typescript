@@ -66,9 +66,9 @@ function removeSatellite(name: string, planet: Planet) {
   alert(`O satélite ${name} foi removido do planeta ${planet.name}.`);
 }
 
-// Funções auxiliares
+// Funções auxiliares:
 
-// função para validar a entrada da propriedade situação:
+// função auxiliar para validar a entrada da propriedade situação.
 
 function promptValidSituation() {
   let situation: PlanetSituation;
@@ -105,4 +105,17 @@ function promptValidSituation() {
   }
 
   return situation;
+}
+
+// Função auxiliar para validar o nome do planeta, recebera um callback para lidar com o resultado.
+
+function promptValidPlanet(callback: (planet: Planet) => void) {
+  const planetName = prompt(`Informe o nome do planeta:`);
+  const planet = findPlanet(planetName);
+
+  if (planet) {
+    callback(planet);
+  } else {
+    alert(`Planeta não encontrado! retornando ao menu...`);
+  }
 }
