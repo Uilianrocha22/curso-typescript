@@ -65,3 +65,44 @@ function removeSatellite(name: string, planet: Planet) {
 
   alert(`O satélite ${name} foi removido do planeta ${planet.name}.`);
 }
+
+// Funções auxiliares
+
+// função para validar a entrada da propriedade situação:
+
+function promptValidSituation() {
+  let situation: PlanetSituation;
+  let validSituation = false;
+
+  while (!validSituation) {
+    const situationInput = Number(
+      prompt(
+        `Informe a situação do planeta?\n1 - Habitado\n2 - Habitável\n3 - Inabitável\n4 - Inexplorado `
+      )
+    );
+
+    switch (situationInput) {
+      case 1:
+        situation = "Habitado";
+        validSituation = true;
+        break;
+      case 2:
+        situation = "Habitável";
+        validSituation = true;
+        break;
+      case 3:
+        situation = "inabitável";
+        validSituation = true;
+        break;
+      case 4:
+        situation = "inexplorado";
+        validSituation = true;
+        break;
+      default:
+        alert(`Situação inválida!`);
+        break;
+    }
+  }
+
+  return situation;
+}
