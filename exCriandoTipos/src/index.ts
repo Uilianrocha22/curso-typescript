@@ -1,3 +1,5 @@
+// Uso do Aliases com type para deixar o codigo mais enxuto:
+
 type PlanetSituation = "Habitado" | "Habitável" | "inabitável" | "inexplorado";
 
 type PlanetCoordinates = [number, number, number, number];
@@ -8,6 +10,8 @@ type Planet = {
   situation: PlanetSituation;
   satellites: string[];
 };
+
+// criação do Array de planetas e função de adicionar um planeta
 
 const planets: Planet[] = [];
 
@@ -26,11 +30,15 @@ function addPlanet(
   alert(`O planeta ${name} foi registrado com sucesso.`);
 }
 
+// Funçaõ para encontrar um planeta:
+
 function findPlanet(name: string) {
   const planet = planets.find((planet) => planet.name === name);
 
   return planet ?? false;
 }
+
+// Função para atuaçizar um planete:
 
 function updateSituation(situation: PlanetSituation, planet: Planet) {
   planet.situation = situation;
@@ -40,11 +48,15 @@ function updateSituation(situation: PlanetSituation, planet: Planet) {
   );
 }
 
+//Funções para adicionar satélites:
+
 function addSatellite(name: string, planet: Planet) {
   planet.satellites.push(name);
 
   alert(`O satélite ${name} foi adcionado ao planeta ${planet.name}`);
 }
+
+//Funções para remover satélites:
 
 function removeSatellite(name: string, planet: Planet) {
   planet.satellites = planet.satellites.filter(
