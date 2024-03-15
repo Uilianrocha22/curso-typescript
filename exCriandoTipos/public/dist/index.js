@@ -80,6 +80,7 @@ function firstMenuOption() {
     const coordinateB = Number(prompt(`Informe a segunda coordenada:`));
     const coordinateC = Number(prompt(`Informe a terceira coordenada:`));
     const coordinateD = Number(prompt(`Informe a quarta coordenada:`));
+    // Aqui a nossa função ajuda a ter um código mais organizado
     const situation = promptValidSituation();
     const confirmation = confirm(`Confirma o registro do planeta ${name}?\nCoordenadas: (${coordinateA}, ${coordinateB}, ${coordinateC}, ${coordinateD})\nSituação: ${situation}`);
     if (confirmation) {
