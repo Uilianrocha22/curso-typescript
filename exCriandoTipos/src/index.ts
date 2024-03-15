@@ -164,9 +164,75 @@ function thirdMenuOption() {
   });
 }
 
-function fourMenuOption() {
+function fourthMenuOption() {
   promptValidPlanet((planet) => {
     const satellite = prompt(`Informe o nome do satélite a ser removido:`);
     removeSatellite(satellite, planet);
   });
+}
+
+function fifthMenuOption() {
+  let list = "Planetas:\n";
+
+  planets.forEach((planet) => {
+    // Repare que as tuplas são uma forma fácil de permitir a
+    // desestruturação com qualquer nome nas variáveis.
+    // As variáveis a seguir podem ter qualquer nome pois a
+    // tupla segue um padrão fixo.
+    const [a, b, c, d] = planet.coordinates;
+
+    list += `
+      Nome: ${planet.name}
+      Coordenadas: (${a}, ${b}, ${c}, ${d})
+      Situação: ${planet.situation}
+      Satélites: ${planet.satellites.length}
+    `;
+
+    planet.satellites.forEach((satellite) => {
+      list += `    - ${satellite}\n`;
+    });
+  });
+
+  alert(list);
+}
+
+// Menu
+
+let userOption = 0;
+
+while (userOption !== 6) {
+  const menu = `Menu
+    1 - Registrar um novo planeta
+    2 - Atualizar situação do planeta
+    3 - Adicionar um satélite ao planeta
+    4 - Remover um satélite do planeta
+    5 - Lista todos os planetas
+    6 - Sair
+  `;
+
+  userOption = Number(prompt(menu));
+
+  switch (userOption) {
+    case 1:
+      firstMenuOption();
+      break;
+    case 2:
+      secondMenuOption();
+      break;
+    case 3:
+      thirdMenuOption();
+      break;
+    case 4:
+      fourthMenuOption();
+      break;
+    case 5:
+      fifthMenuOption();
+      break;
+    case 6:
+      alert("Encerrando o sistema...");
+      break;
+    default:
+      alert("Opção inválida! Retornando ao painel principal...");
+      break;
+  }
 }
