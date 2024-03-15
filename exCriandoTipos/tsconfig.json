@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "outDir": "public/dist",
-    "rootDir": "./src",
-    "target": "ESNext"
+    "outDir": "public/dist", //=> arquivo onde vai ser criado o index.js
+    "rootDir": "./src", //=> aqui ele vai olhar somente para os arquivos typescrip que estiver dentro da pasta ( src )
+    "target": "ESNext" //=> aqui ele compila o arquivo typescript para a versão mais recente do javascript
   }
 }
