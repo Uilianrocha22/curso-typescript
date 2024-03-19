@@ -49,3 +49,33 @@ async function fetchUser(username: string) {
     );
   }
 }
+
+// Agora a função de detalhar um usuário específico:
+
+async function showUser(username: string) {
+  const user = users.find((user) => user.login === username);
+
+  if (typeof user === "undefined") {
+    alert(`Usuário não encontrado!`);
+  } else {
+    const response = await fetch(user.repos_url);
+    const reposit: GithubRepoResponse[] = await response.json();
+
+    let message =
+      `Id: ${user.id}\n` +
+      `\nLogin: ${user.login}` +
+      `\nNome: ${user.name}` +
+      `\nBio: ${user.bio}` +
+      `\nRepositórios públicos: ${user.public_repos}\n`;
+
+    reposit.forEach((repos) => {
+      message +=
+        `\nNome: ${repos.name}` +
+        `\nDescrição: ${repos.description}` +
+        `\nEstrelas: ${repos.stargazers_count}` +
+        `\nÉ um fork: ${repos.fork ? "Sim" : "Não"}\n`;
+    });
+    alert(message);
+    console.log(message);
+  }
+}
