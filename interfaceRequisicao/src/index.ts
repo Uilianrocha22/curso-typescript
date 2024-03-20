@@ -38,7 +38,7 @@ async function fetchUser(username: string) {
   } else {
     users.push(user);
 
-    alert(
+    console.log(
       `O usuário ${user.login} foi salvo.\n` +
         `\nid: ${user.id}` +
         `\nlogin: ${user.login}` +
@@ -75,7 +75,72 @@ async function showUser(username: string) {
         `\nEstrelas: ${repos.stargazers_count}` +
         `\nÉ um fork: ${repos.fork ? "Sim" : "Não"}\n`;
     });
-    alert(message);
+
     console.log(message);
   }
+}
+
+// A função de mostrar todos os usuários salvos:
+
+function showAllUsers() {
+  let message = `Usuários:\n`;
+
+  users.forEach((user) => {
+    message += `\n- ${user.login}`;
+  });
+
+  console.log(message);
+}
+
+// A função de somar o número de repositórios públicos:
+
+function showReposTotal() {
+  const reposTotal = users.reduce(
+    (accumulator, user) => accumulator + user.public_repos,
+    0
+  );
+
+  console.log(
+    `O grupo possui um total de ${reposTotal} repositórios públicos!`
+  );
+}
+
+// A função de mostrar todos os usuários salvos:
+
+function showTopFive() {
+  const topFive = users
+    .slice()
+    .sort(
+      (currentUser, nextUser) =>
+        nextUser.public_repos - currentUser.public_repos
+    )
+    .slice(0, 5);
+
+  let message = `Top 5 usuários com mais repositórios públicos:\n`;
+
+  topFive.forEach((user, index) => {
+    message += `\n${index + 1} - ${user.login}: ${
+      user.public_repos
+    } repositórios.`;
+  });
+
+  console.log(message);
+}
+
+// Opcionalmente podemos declarar uma função para executar todas as outras para testar:
+
+async function main() {
+  await fetchUser("isaacpontes");
+  await fetchUser("julianaconde");
+  await fetchUser("pcaldass");
+  await fetchUser("lucasqueirogaa");
+  await fetchUser("frans203");
+  await fetchUser("LeDragoX");
+
+  await showUser("isaacpontes");
+  await showUser("julianaconde");
+
+  showAllUsers();
+  showReposTotal();
+  showTopFive();
 }
