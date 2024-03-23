@@ -156,3 +156,25 @@ let repository: RepositoryOnly;
 // .................................................................................................................
 
 // Adicionando o PICK
+
+// Semelhante ao Omit, o Pick possui a função contrária. Com ele é possível criar um tipo a partir outro, mas selecionando apenas algumas propriedades.
+
+// Obs².: Como podemos ver, o caso de uso ideal do Pick é quando precisamos de apenas poucas propriedades de um tipo de objeto que já existe.
+
+type LocalGithubUser = Pick<
+  GithubUserResponse,
+  "id" | "login" | "name" | "bio"
+>;
+
+type LocalGithubRepo = Pick<
+  GithubRepoResponse,
+  "name" | "description" | "fork" | "stargazers_count" | "private"
+>;
+
+let localUser: LocalGithubRepo;
+let localRepository: LocalGithubRepo;
+
+// Vemos que no autocompletar as propriedades de ambos os objetos aparecem
+
+localRepository.name = "";
+localUser.name = "";
