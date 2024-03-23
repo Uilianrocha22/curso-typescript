@@ -35,32 +35,31 @@ interface GithubUserResponse {
   updated_at: string;
 }
 
+// Adiacionando o OMIT na interface, Ele recebe dois argumentos (utilizando a sintaxe < > característica dos genéricos), o primeiro é o tipo a ser copiado e o segundo são as propriedades a serem removidas na forma de uma união de strings.
+
 interface GithubRepoResponse {
   id: number;
   node_id: string;
   name: string;
   full_name: string;
   private: boolean;
-  owner: {
-    login: string;
-    id: number;
-    node_id: string;
-    avatar_url: string;
-    gravatar_id: string;
-    url: string;
-    html_url: string;
-    followers_url: string;
-    following_url: string;
-    gists_url: string;
-    starred_url: string;
-    subscriptions_url: string;
-    organizations_url: string;
-    repos_url: string;
-    events_url: string;
-    received_events_url: string;
-    type: string;
-    site_admin: boolean;
-  };
+  owner: Omit<
+    GithubUserResponse,
+    | "name"
+    | "company"
+    | "blog"
+    | "location"
+    | "email"
+    | "hireable"
+    | "bio"
+    | "twitter_username"
+    | "public_repos"
+    | "public_gists"
+    | "followers"
+    | "following"
+    | "created_at"
+    | "updated_at"
+  >;
   html_url: string;
   description: string;
   fork: boolean;
@@ -133,3 +132,27 @@ interface GithubRepoResponse {
   watchers: number;
   default_branch: string;
 }
+
+let repo: GithubRepoResponse;
+
+repo.owner.avatar_url;
+
+// repo.owner.name = 'Uilian'
+
+// A propriedade 'name' não existe no tipo 'Omit<GithubUserResponse, ...
+
+// ................................................................................................................
+
+// Outra forma de verificar seria criar um novo tipo RepositoryOnly que não possui a propriedade owner. Vemos que ela é completamente removida usando o Omit:
+
+type RepositoryOnly = Omit<GithubRepoResponse, "owner">;
+
+let repository: RepositoryOnly;
+
+// repository.owner = {};
+
+// A propriedade 'owner' não existe no tipo 'RepositoryOnly'
+
+// .................................................................................................................
+
+// Adicionando o PICK
