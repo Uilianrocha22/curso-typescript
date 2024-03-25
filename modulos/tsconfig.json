@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "module": "amd",
+    "outDir": "dist",
+    "outFile": "index.js",
+    "target": "ESNext"
+  }
+}
