@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "outFile": "main.js",
+    "target": "ESNext",
+    "experimentalDecorators": true // para trabalhar com os decorators
+  }
+}
