@@ -3,6 +3,14 @@ interface DestructingProps {
   content: string;
   commentsQty: number;
   tags: string[];
+  // - enum
+  category: category;
+}
+
+export enum category {
+  js = "Javascript",
+  Ts = "Tipescript",
+  Py = "Python",
 }
 
 export default function Destructing({
@@ -10,6 +18,7 @@ export default function Destructing({
   content,
   commentsQty,
   tags,
+  category,
 }: DestructingProps) {
   return (
     <div>
@@ -21,6 +30,7 @@ export default function Destructing({
           <span>#{tag}</span>
         ))}
       </div>
+      <h4>Categoria: {category}</h4>
     </div>
   );
 }

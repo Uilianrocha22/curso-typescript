@@ -1,6 +1,7 @@
-import Destructing from "./components/Destructing";
+import Destructing, { category } from "./components/Destructing";
 import FirstComponent from "./components/FirstComponent";
 import State from "./components/State";
+
 import "./index.css";
 
 function App() {
@@ -33,14 +34,16 @@ function App() {
         title="Primeiro post"
         content="Algum post"
         commentsQty={10}
-        tags={["Typescript", "React"]}
+        tags={["Typescript"]}
+        category={category.Ts}
       />
 
       <Destructing
         title=" Segundo post"
         content="outro post"
         commentsQty={5}
-        tags={["Reactjs"]}
+        tags={["Python"]}
+        category={category.Py}
       />
       <hr />
       <State />
