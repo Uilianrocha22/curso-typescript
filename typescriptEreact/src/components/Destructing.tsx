@@ -9,7 +9,7 @@ interface DestructingProps {
 
 export enum category {
   js = "Javascript",
-  Ts = "Tipescript",
+  Ts = "Typescript",
   Py = "Python",
 }
 

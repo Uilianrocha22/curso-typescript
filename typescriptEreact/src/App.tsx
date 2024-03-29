@@ -4,6 +4,9 @@ import State from "./components/State";
 
 import "./index.css";
 
+type textOrNull = string | null;
+type textFixed = "isso" | "ou" | "aquilo";
+
 function App() {
   // 1 - Variáveis
   const name: string = "Uilian Rocha";
@@ -15,6 +18,13 @@ function App() {
   function userGreeting(name: string): string {
     return `Olá ${name}`;
   }
+
+  const myText: textOrNull = "Tem algum texto aqui";
+  let mySecondText: textOrNull = null;
+
+  //mySecondText = "Opa!";
+
+  const fixedContent: textFixed = "isso";
 
   return (
     <div className="App">
@@ -48,6 +58,8 @@ function App() {
       <hr />
       <State />
       <hr />
+      {myText && <p>Tem texto na variável</p>}
+      {mySecondText && <p>Tem texto na variável</p>}
     </div>
   );
 }
