@@ -19,12 +19,16 @@ function App() {
     return `Olá ${name}`;
   }
 
+  // 3 - types
+
   const myText: textOrNull = "Tem algum texto aqui";
   let mySecondText: textOrNull = null;
 
   //mySecondText = "Opa!";
 
   const fixedContent: textFixed = "isso";
+
+  // 4 - Contexts
 
   return (
     <div className="App">
@@ -60,6 +64,7 @@ function App() {
       <hr />
       {myText && <p>Tem texto na variável</p>}
       {mySecondText && <p>Tem texto na variável</p>}
+      <hr />
     </div>
   );
 }
